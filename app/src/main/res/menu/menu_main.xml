@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="ru.netologia.sharinm_task_4212.MainActivity">
+
+    <item
+        android:id="@+id/action_open_notes"
+        android:orderInCategory="100"
+        android:title="@string/textMenuOpenNotes"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_calendar"
+        android:orderInCategory="100"
+        android:title="@string/textMenuCalendar"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_spinner"
+        android:orderInCategory="100"
+        android:title="@string/textMenuSpinner"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_open_checkbox"
+        android:orderInCategory="100"
+        android:title="@string/textMenuCheckBox"
+        app:showAsAction="never" />
+</menu>
