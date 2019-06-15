@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AСписок с custom элементами 2 часть</string>
+    <string name="app_name">Список с custom элементами 2 часть</string>
     <string name="textMenuOpenNotes">Записная книжка</string>
     <string name="app_name_notes">Записная книжка в SharedPreferences</string>
     <string name="textBtnSaveNote">Сохранить</string>

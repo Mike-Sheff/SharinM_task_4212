@@ -1,7 +1,9 @@
 package ru.netologia.sharinm_task_4212;
 
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,9 +28,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Random random = new Random();
     private ItemDataAdapter adapter;
-    private List<Drawable> images = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +40,20 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-fillImages();
-
         adapter = new ItemDataAdapter(this, null);
 
-        adapter.addItem(new ItemData("Урок № 1", getString(R.string.app_name_calendar), images.get(random.nextInt(images.size()))));
-        adapter.addItem(new ItemData("Урок № 2", getString(R.string.app_name_checkbox), images.get(random.nextInt(images.size()))));
-        adapter.addItem(new ItemData("Урок № 3", getString(R.string.app_name_notes), images.get(random.nextInt(images.size()))));
-        adapter.addItem(new ItemData("Урок № 4", getString(R.string.app_name_spinner), images.get(random.nextInt(images.size()))));
+        adapter.addItem(new ItemData("Урок № 1", getString(R.string.app_name_calendar), ContextCompat.getDrawable(MainActivity.this, R.drawable.android1)));
+        adapter.addItem(new ItemData("Урок № 2", getString(R.string.app_name_checkbox), ContextCompat.getDrawable(MainActivity.this, R.drawable.android1)));
+        adapter.addItem(new ItemData("Урок № 3", getString(R.string.app_name_notes), ContextCompat.getDrawable(MainActivity.this, R.drawable.android2)));
+        adapter.addItem(new ItemData("Урок № 4", getString(R.string.app_name_spinner), ContextCompat.getDrawable(MainActivity.this, R.drawable.android2)));
 
         adapter.addItem(new ItemData("Очень-очень длинное название урока, по которому что-то надо было сделать!",
-                "Длиннющее сообщение под темой урока, не опонятно ля чего такое длинное!", ContextCompat.getDrawable(MainActivity.this, android.R.drawable.ic_menu_agenda)));
+                "Длиннющее сообщение под темой урока, не опонятно ля чего такое длинное!", ContextCompat.getDrawable(MainActivity.this, R.drawable.android)));
         adapter.addItem(new ItemData("Ещё один урок!",
                 "Это длинный комментарий под уроком, который может быть вообще........  ну, честное слово...... вот теперь точно длинее всех!",
-                        ContextCompat.getDrawable(MainActivity.this, android.R.drawable.ic_menu_agenda)));
+                        ContextCompat.getDrawable(MainActivity.this, R.drawable.android)));
         adapter.addItem(new ItemData("Длинная тема урока, но при этом будет короткая подтема, потому что длинее урока подтема не может быть!",
-                "И правда, короткая подтема!", ContextCompat.getDrawable(MainActivity.this, android.R.drawable.ic_menu_agenda)));
+                "И правда, короткая подтема!", ContextCompat.getDrawable(MainActivity.this, R.drawable.android)));
 
 
         listView.setAdapter(adapter);
@@ -72,19 +71,6 @@ fillImages();
                 return true;
             }
         });
-    }
-
-    private void fillImages() {
-        images.add(ContextCompat.getDrawable(MainActivity.this,
-                android.R.drawable.ic_menu_report_image));
-        images.add(ContextCompat.getDrawable(MainActivity.this,
-                android.R.drawable.ic_menu_add));
-        images.add(ContextCompat.getDrawable(MainActivity.this,
-                android.R.drawable.ic_menu_agenda));
-        images.add(ContextCompat.getDrawable(MainActivity.this,
-                android.R.drawable.ic_menu_camera));
-        images.add(ContextCompat.getDrawable(MainActivity.this,
-                android.R.drawable.ic_menu_call));
     }
 
     private void showItemData(int position) {
